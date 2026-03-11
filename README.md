@@ -96,47 +96,49 @@ El sistema ha calculado correctamente el total de artículos vendidos y el total
 
 
 # Pseudocódigo
-INICIO
-
-Definir articulo Como Cadena
-Definir cantidad, totalArticulos Como Entero
-Definir precio, totalDinero, totalVenta Como Real
-Definir continuar Como Cadena
-
-totalArticulos <- 0
-totalDinero <- 0
-
-Repetir
-Escribir "Ingrese el nombre del artículo:"
-Leer articulo
-
-Escribir "Ingrese la cantidad vendida:"
-Leer cantidad
-
-Mientras cantidad <= 0 Hacer
-Escribir "Error: la cantidad debe ser un número entero positivo"
-Leer cantidad
-FinMientras
-Escribir "Ingrese el precio unitario:"
-Leer precio
-
-Mientras precio <= 0 Hacer
-Escribir "Error: el precio debe ser mayor que cero"
-Leer precio
-FinMientras
-
-totalVenta <- cantidad * precio
-
-totalArticulos <- totalArticulos + cantidad
-totalDinero <- totalDinero + totalVenta
-
-Escribir "¿Desea registrar otra venta? (SI/NO)"
-Leer continuar
-
-Hasta Que continuar = "NO"
-
-Escribir "Resumen del día"
-Escribir "Total de artículos vendidos: ", totalArticulos
-Escribir "Total de dinero recaudado: ", totalDinero
-
-FIN
+    -INICIO
+  
+    Definir articulo Como Cadena
+    Definir cantidad, totalArticulos Como Entero
+    Definir precio, totalDinero, totalVenta Como Real
+    Definir continuar Como Cadena
+  
+    totalArticulos <- 0
+    totalDinero <- 0
+  
+    Repetir
+  
+        Escribir "Ingrese el nombre del artículo:"
+        Leer articulo
+  
+        Escribir "Ingrese la cantidad vendida:"
+        Leer cantidad
+  
+        Mientras cantidad <= 0 Hacer
+            Escribir "Error: la cantidad debe ser un número entero positivo"
+            Leer cantidad
+        FinMientras
+  
+        Escribir "Ingrese el precio unitario:"
+        Leer precio
+  
+        Mientras precio <= 0 Hacer
+            Escribir "Error: el precio debe ser mayor que cero"
+            Leer precio
+        FinMientras
+  
+        totalVenta <- cantidad * precio
+  
+        totalArticulos <- totalArticulos + cantidad
+        totalDinero <- totalDinero + totalVenta
+  
+        Escribir "¿Desea registrar otra venta? (SI/NO)"
+        Leer continuar
+  
+    Hasta Que continuar = "NO"
+  
+    Escribir "Resumen del día"
+    Escribir "Total de artículos vendidos: ", totalArticulos
+    Escribir "Total de dinero recaudado: ", totalDinero
+  
+    FIN
