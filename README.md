@@ -9,7 +9,7 @@ Me contrataron en una empresa para desarrollar una aplicación software para una
 - La cantidad vendida debe ser un número entero positivo.
 - El sistema no gestionará inventario ni controlará stock, únicamente registrará ventas del día.
 - No se permite modificar una venta ya registrada (solo se registran nuevas ventas).
-- El cálculo del total diario se realiza únicamente con las ventas ingresadas en la sesión actual.
+- El cálculo del total diario se realiza únicamente con las ventas ingresadas en la sesión actual donde se calculara la cantidad de articulos por su respectivo precio unitario.
 - El sistema funciona de manera local y no requiere conexión a internet.
 
 ---
@@ -96,7 +96,7 @@ El sistema ha calculado correctamente el total de artículos vendidos y el total
 
 
 # Pseudocódigo
--INICIO
+INICIO
 
 Definir articulo Como Cadena
 Definir cantidad, totalArticulos Como Entero
@@ -107,33 +107,31 @@ totalArticulos <- 0
 totalDinero <- 0
 
 Repetir
+Escribir "Ingrese el nombre del artículo:"
+Leer articulo
 
-    Escribir "Ingrese el nombre del artículo:"
-    Leer articulo
+Escribir "Ingrese la cantidad vendida:"
+Leer cantidad
 
-    Escribir "Ingrese la cantidad vendida:"
-    Leer cantidad
+Mientras cantidad <= 0 Hacer
+Escribir "Error: la cantidad debe ser un número entero positivo"
+Leer cantidad
+FinMientras
+Escribir "Ingrese el precio unitario:"
+Leer precio
 
-    Mientras cantidad <= 0 Hacer
-        Escribir "Error: la cantidad debe ser un número entero positivo"
-        Leer cantidad
-    FinMientras
+Mientras precio <= 0 Hacer
+Escribir "Error: el precio debe ser mayor que cero"
+Leer precio
+FinMientras
 
-    Escribir "Ingrese el precio unitario:"
-    Leer precio
+totalVenta <- cantidad * precio
 
-    Mientras precio <= 0 Hacer
-        Escribir "Error: el precio debe ser mayor que cero"
-        Leer precio
-    FinMientras
+totalArticulos <- totalArticulos + cantidad
+totalDinero <- totalDinero + totalVenta
 
-    totalVenta <- cantidad * precio
-
-    totalArticulos <- totalArticulos + cantidad
-    totalDinero <- totalDinero + totalVenta
-
-    Escribir "¿Desea registrar otra venta? (SI/NO)"
-    Leer continuar
+Escribir "¿Desea registrar otra venta? (SI/NO)"
+Leer continuar
 
 Hasta Que continuar = "NO"
 
